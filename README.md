@@ -50,6 +50,12 @@ This document outlines the available routes in the **Auth Service** of the micro
 
 ---
 
+## Database Schema
+
+Below is the database schema for the Play Service:
+
+![Database Schema](./prisma/db_schema.png)
+
 # Environment Variables Setup
 
 To run this **Auth Service**, you need to create a `.env` file in the root directory of your project. This file will store sensitive environment variables.
