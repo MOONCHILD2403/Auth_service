@@ -8,7 +8,14 @@ const init = async () => {
 
     const server = Hapi.server({
         port: 3001,
-        host: 'localhost'
+        host: 'localhost',
+        routes: {
+            cors: {
+                origin: ['*'], 
+                headers: ['Accept', 'Authorization', 'Content-Type', 'If-None-Match'], 
+                credentials: true, 
+            },
+        },
     });
 
     server.route({
@@ -43,7 +50,7 @@ const init = async () => {
     server.route({
         method: 'POST',
         path: `${base_url}/logout`,
-        handler: handleLogout
+        handler: handleLogout,
     });
 
     await server.start();

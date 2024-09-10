@@ -18,7 +18,7 @@ async function handleLogin(request, h) {
         })
         const match = await bcrypt.compare(password, user.password);
         if(user && match){
-            const token = jwt.sign({userid:user.id},JWT_SECRET,{ expiresIn: '2m' });
+            const token = jwt.sign({userid:user.id,username:user.name,email:user.email},JWT_SECRET,{ expiresIn: '2m' });
             return h.response({"access token":token}).code(200);
         }
         else return h.response({msg:"invalid credentials"}).code(404);
